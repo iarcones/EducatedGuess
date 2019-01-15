@@ -1,0 +1,103 @@
+<div class="container">
+
+    <div class="row mb-4 mt-4">
+         <div class="col-10">
+            <a href="/">
+                <img src="assets/img/logomovie.png" class="img-logo" alt="logo">
+            </a>
+        </div>
+        <div class="col-1">
+            <form action="/friendspage" method="GET">
+                {{!-- <form action="/friends" method="GET"> --}}
+                    <button class="friends btn btn-primary btn-sm" type="submit">My friends</button>
+                </form>
+        </div>
+{{!-- 
+        <div class="col-2">
+            <button class="btn btn-primary btn-sm" id="pagefriends" type="submit">FRIENDS</button>
+        </div> --}}
+
+        <div class="col-1">
+            <button class="btn btn-primary btn-sm" id="logout" type="submit">Log out</button>
+        </div>
+    </div>
+
+    <div class="row mb-4 mt-4">
+        <div class="col">
+            <h2 class="text-center">Welcome to your profile page.</h2>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col">
+            <h3 class="text-center mt-3 mb-3">These are your saved movies and shows</h3>
+        </div>
+    </div>
+
+  {{!-- row for the users saved movie title HEADINGS --}}
+    <div class="row saved-user-movies">
+        <div class="col">
+
+            <ul class="">
+
+                <li>
+                    <div class="row  align-items-center">
+                        <div class="col-2">
+                            <h3><strong></strong></h3>
+                        </div>
+                        <div class="prof-text col-4">
+                            <h3><strong>Title</strong></h3>
+                        </div>
+                        <div class="prof-text col-3">
+                            <h3><strong>Review</strong></h3>
+                        </div>
+                        <div class="prof-text col-1">
+                            <h3><strong>Rating</strong></h3>
+                        </div>
+                        <div class="col-2">
+                            <h3><strong></strong></h3>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+    {{!-- row for the users saved movies --}}
+    <div class="row saved-user-movies">
+        <div class="col">
+
+            <ul class="">
+                {{#each usermedia}}
+                <li>
+                    <div class="row align-items-center">
+                        <div class="col-2">
+                            <img style="width:100px;height:150px;" src="https://image.tmdb.org/t/p/w300/{{{Medium.media_pic}}}">
+                        </div>
+                        <div class="prof-text col-4">
+                            <h4>{{Medium.media_name}}</h4>
+                        </div>
+                        <div class="prof-text col-3">
+                            <h4>{{myreview}}</h4>
+                        </div>
+                        <div class="prof-text col-1">
+                            <h4>{{rating}}</h4>
+                        </div>
+                        <div class="col-2">
+                            <button class="delete btn-warning btn-sm" data-id="{{this.id}}">Delete!</button>
+                        </div>
+                    </div>
+                </li>
+
+                {{/each}}
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+<script src="assets/js/login.js"></script>
+<script src="assets/js/app.js"> </script>
